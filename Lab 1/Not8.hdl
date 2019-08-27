@@ -1,0 +1,24 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Not8.hdl
+
+/**
+ * 8-bit Not:
+ * for i=0..7: out[i] = not in[i]
+ */
+
+CHIP Not8 {
+    IN in[8];
+    OUT out[8];
+
+    PARTS:
+    Not(a=in[0],out=out[0]);
+    Not(a=in[1],out=out[1]);
+    Not(a=in[2],out=out[2]);
+    Not(a=in[3],out=out[3]);
+    Not(a=in[4],out=out[4]);
+    Not(a=in[5],out=out[5]);
+    Not(a=in[6],out=out[6]);
+    Not(a=in[7],out=out[7]);
+}
