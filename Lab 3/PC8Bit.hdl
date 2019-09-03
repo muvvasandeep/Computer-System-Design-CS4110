@@ -1,0 +1,19 @@
+/**
+ * A 8-bit counter with load and reset control bits.
+ * if      (reset[t] == 1) out[t+1] = 0
+ * else if (load[t] == 1)  out[t+1] = in[t]
+ * else if (inc[t] == 1)   out[t+1] = out[t] + 1  (integer addition)
+ * else                    out[t+1] = out[t]
+ */
+
+CHIP PC8Bit {
+    IN in[8],load,inc,reset;
+    OUT out[8];
+
+    PARTS:
+    Inc8(in=out0,out=incout);
+	Mux8(a=out0,b=incout,sel=inc,out=out1);
+	Mux8(a=out1,b=in,sel=load,out=out2);
+	Mux8(a=out2,b[0..7]=false,sel=reset,out=resfal);
+	Reg8Bit(in=resfal,load=true,out=out,out=out0);
+}

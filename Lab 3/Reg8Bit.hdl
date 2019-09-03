@@ -1,0 +1,21 @@
+/**
+ * 8-bit register.
+ * If load[t]=1 then out[t+1] = in[t]
+ * else out does not change
+ */
+
+CHIP Reg8Bit {
+    IN in[8], load;
+    OUT out[8];
+
+    PARTS:
+    // Put your code here:
+    Reg1Bit(in=in[0], load=load, out=out[0]);
+    Reg1Bit(in=in[1], load=load, out=out[1]);
+    Reg1Bit(in=in[2], load=load, out=out[2]);
+    Reg1Bit(in=in[3], load=load, out=out[3]);
+    Reg1Bit(in=in[4], load=load, out=out[4]);
+    Reg1Bit(in=in[5], load=load, out=out[5]);
+    Reg1Bit(in=in[6], load=load, out=out[6]);
+    Reg1Bit(in=in[7], load=load, out=out[7]);
+}
