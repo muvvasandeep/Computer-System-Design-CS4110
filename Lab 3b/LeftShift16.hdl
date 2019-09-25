@@ -1,0 +1,7 @@
+CHIP LeftShift16{
+	IN in[16];
+	OUT out[16];
+
+	PARTS:
+	And16(a[0]=false,a[1..15]=in[0..14],b[0..15]=true,out=out);
+}

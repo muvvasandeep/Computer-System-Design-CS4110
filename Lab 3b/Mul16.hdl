@@ -1,0 +1,64 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/Mul16.hdl
+
+/**
+ * Multiplies two 16-bit values.
+ * The most significant carry bit is ignored.
+ */
+
+CHIP Mul16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Mux16(a[0..15]=false,b=a,sel=b[0],out=l1);
+    //And16(a[0..15]=b[0],b=a,out=l1);
+    LeftShift16(in=a,out=s1);
+    Mux16(a[0..15]=false,b=s1,sel=b[1],out=l2);
+    LeftShift16(in=s1,out=s2);
+    Mux16(a[0..15]=false,b=s2,sel=b[2],out=l3);
+    LeftShift16(in=s2,out=s3);
+    Mux16(a[0..15]=false,b=s3,sel=b[3],out=l4);
+    LeftShift16(in=s3,out=s4);
+    Mux16(a[0..15]=false,b=s4,sel=b[4],out=l5);
+    LeftShift16(in=s4,out=s5);
+    Mux16(a[0..15]=false,b=s5,sel=b[5],out=l6);
+    LeftShift16(in=s5,out=s6);
+    Mux16(a[0..15]=false,b=s6,sel=b[6],out=l7);
+    LeftShift16(in=s6,out=s7);
+    Mux16(a[0..15]=false,b=s7,sel=b[7],out=l8);
+    LeftShift16(in=s7,out=s8);
+    Mux16(a[0..15]=false,b=s8,sel=b[8],out=l9);
+    LeftShift16(in=s8,out=s9);
+    Mux16(a[0..15]=false,b=s9,sel=b[9],out=l10);
+    LeftShift16(in=s9,out=s10);
+    Mux16(a[0..15]=false,b=s10,sel=b[10],out=l11);
+    LeftShift16(in=s10,out=s11);
+    Mux16(a[0..15]=false,b=s11,sel=b[11],out=l12);
+    LeftShift16(in=s11,out=s12);
+    Mux16(a[0..15]=false,b=s12,sel=b[12],out=l13);
+    LeftShift16(in=s12,out=s13);
+    Mux16(a[0..15]=false,b=s13,sel=b[13],out=l14);
+    LeftShift16(in=s13,out=s14);
+    Mux16(a[0..15]=false,b=s14,sel=b[14],out=l15);
+    LeftShift16(in=s14,out=s15);
+    Mux16(a[0..15]=false,b=s15,sel=b[15],out=l16);
+
+    Add16(a=l1,b=l2,out=a0);
+    Add16(a=a0,b=l3,out=a1);
+    Add16(a=a1,b=l4,out=a2);
+    Add16(a=a2,b=l5,out=a3);
+    Add16(a=a3,b=l6,out=a4);
+    Add16(a=a4,b=l7,out=a5);
+    Add16(a=a5,b=l8,out=a6);
+    Add16(a=a6,b=l9,out=a7);
+    Add16(a=a7,b=l10,out=a8);
+    Add16(a=a8,b=l11,out=a9);
+    Add16(a=a9,b=l12,out=a10);
+    Add16(a=a10,b=l13,out=a11);
+    Add16(a=a11,b=l14,out=a12);
+    Add16(a=a12,b=l15,out=a13);
+    Add16(a=a13,b=l16,out=out);
+}
