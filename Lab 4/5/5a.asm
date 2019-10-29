@@ -1,0 +1,11 @@
+(START)
+
+@KBD
+D=M
+@START
+D;JEQ
+
+@store
+M=D
+@START
+0;JMP
